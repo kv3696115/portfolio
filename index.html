@@ -316,8 +316,11 @@
     <div class="tagline">Creative Designer • Digital Marketing Enthusiast • Content Creator</div>
     <p class="hero-desc">Designing visuals, creating content and building brands. Marketing student with hands-on social media & graphic design experience.</p>
     <div class="btn-group">
-      <a href="#" class="btn" id="downloadResumeBtn">📄 Download Resume</a>
-      <a href="#contact" class="btn btn-outline">📬 Contact Me</a>
+      <a href="Kajal_Verma_Marketing_resume.pdf"
+   class="btn"
+   target="_blank">
+   📄 Download Resume
+</a>      <a href="#contact" class="btn btn-outline">📬 Contact Me</a>
     </div>
   </div>
 </div>
@@ -479,28 +482,6 @@
   <p style="margin-top: 12px;">© 2026 • Shaheed Rajguru College of Applied Sciences for Women, DU</p>
 </footer>
 
-<script>
-  // resume download from actual content
-  document.getElementById('downloadResumeBtn')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    const resumeText = `KAJAL VERMA
-SUMMARY: Second-year Bachelor of Management student with hands-on experience in social media management, content creation and digital marketing. Skilled in graphic design, video editing and audience engagement strategies.
-EDUCATION: BMS (Shaheed Rajguru college, DU 2024-2028) | Class XII (CBSE) 2024 | Class X (CBSE) 2022
-EXPERIENCE: Project Management Intern @Pawzz Foundation (Aug 2025-Oct 2025). Social Media Coordinator @Enactus SRCASW (promoted in 2 months). Media & Graphics member @TedxSRCASW, IIC, DMFS.
-CERTIFICATIONS: Electronic Arts Product Management, TATA Data Visualisation, Graphic Designing Proficiency.
-SKILLS: Canva, Adobe Photoshop, Illustrator, After Effects, CapCut, Filmora, Social Media Strategy, Content Marketing, AI tools.
-    `;
-    const blob = new Blob([resumeText], {type: 'application/pdf'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'Kajal_Verma_Resume.pdf';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  });
-</script>
 
 <!-- 
   ========== 🎯 QUICK & EASY GUIDE TO ADD YOUR CANVA DESIGNS & VIDEOS ==========
