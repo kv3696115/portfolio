@@ -1,0 +1,525 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Kajal Verma | Creative Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0A0C10;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      color: #E8EDF2;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* modern dark theme with subtle warm accents */
+    :root {
+      --bg-deep: #0A0C10;
+      --bg-elevated: #13161C;
+      --bg-card: #1A1F2A;
+      --border-subtle: #2A2F3A;
+      --accent: #C9A87C;
+      --accent-glow: rgba(201, 168, 124, 0.2);
+      --text-primary: #F0F3F8;
+      --text-secondary: #B0B8C5;
+      --text-muted: #7E8493;
+    }
+
+    /* container & layout */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* header / hero */
+    .hero {
+      padding: 80px 0 60px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at 20% 30%, rgba(201,168,124,0.08), transparent);
+    }
+    .hero-content {
+      max-width: 800px;
+    }
+    h1 {
+      font-size: 56px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #FFFFFF, #C9A87C);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .tagline {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin-bottom: 32px;
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #0A0C10;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: 0.2s ease;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+    .btn-outline:hover {
+      background: rgba(201,168,124,0.1);
+      transform: translateY(-2px);
+    }
+    .btn:hover {
+      background: #b89365;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,124,0.3);
+    }
+
+    /* section styling */
+    section {
+      margin: 64px 0;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 32px;
+      display: inline-block;
+      border-left: 4px solid var(--accent);
+      padding-left: 20px;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .card {
+      background: var(--bg-card);
+      border-radius: 24px;
+      border: 1px solid var(--border-subtle);
+      padding: 24px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .card p, .card ul {
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+    ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    .skill-badge {
+      background: rgba(201,168,124,0.12);
+      border-radius: 40px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      display: inline-block;
+      margin: 4px 6px 4px 0;
+      color: #D9C5A7;
+    }
+
+    /* media showcase: video + carousel sections */
+    .media-showcase {
+      background: var(--bg-elevated);
+      border-radius: 32px;
+      padding: 32px;
+      margin: 48px 0;
+      border: 1px solid var(--border-subtle);
+    }
+    .media-title {
+      font-size: 28px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .instruction-box {
+      background: #0F1219;
+      border-radius: 16px;
+      padding: 18px 22px;
+      margin-top: 28px;
+      border-left: 4px solid var(--accent);
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+    .instruction-box code {
+      background: #00000060;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-family: monospace;
+      color: #C9A87C;
+    }
+    .video-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 24px;
+    }
+    .video-item {
+      flex: 1 1 340px;
+      background: #0F1219;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s;
+    }
+    .video-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      background: #000;
+    }
+    .video-wrapper iframe, .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      object-fit: cover;
+    }
+    .video-caption {
+      padding: 14px 16px;
+      background: #0F1219;
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+    }
+    .carousel-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-top: 24px;
+    }
+    .carousel-item {
+      flex: 1 1 260px;
+      background: #0F1219;
+      border-radius: 20px;
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .carousel-item img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: #1E2430;
+    }
+    .carousel-item:hover {
+      transform: scale(1.02);
+      border-color: var(--accent);
+    }
+    .carousel-caption {
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-align: center;
+      background: #0F1219;
+      border-top: 1px solid var(--border-subtle);
+    }
+    hr {
+      border-color: var(--border-subtle);
+      margin: 20px 0;
+    }
+    footer {
+      text-align: center;
+      padding: 48px 20px;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 40px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    @media (max-width: 760px) {
+      .container {
+        padding: 0 20px;
+      }
+      h1 {
+        font-size: 42px;
+      }
+      .hero {
+        padding: 48px 0;
+      }
+      .media-showcase {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="container hero-content">
+    <h1>Kajal Verma</h1>
+    <div class="tagline">Creative Designer • Digital Marketing Enthusiast • Content Creator</div>
+    <p class="hero-desc">Designing visuals, creating content and building brands. Marketing student with hands-on social media & graphic design experience.</p>
+    <div class="btn-group">
+      <a href="#" class="btn" id="downloadResumeBtn">📄 Download Resume</a>
+      <a href="#contact" class="btn btn-outline">📬 Contact Me</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- About Me -->
+  <section>
+    <h2 class="section-title">About Me</h2>
+    <p style="font-size: 18px; color: var(--text-secondary); max-width: 900px;">I'm Kajal Verma, a second-year Bachelor of Management student with hands-on experience in social media management, content creation, and digital marketing. Skilled in graphic design, video editing, and audience engagement. I blend creativity with data-driven insights to deliver impactful brand stories. Looking for Marketing / Social Media Internship opportunities.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section>
+    <h2 class="section-title">Core Competencies</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>🎨 Design & Visuals</h3>
+        <div><span class="skill-badge">Canva</span> <span class="skill-badge">Adobe Photoshop</span> <span class="skill-badge">Illustrator</span> <span class="skill-badge">After Effects</span> <span class="skill-badge">Filmora</span> <span class="skill-badge">CapCut</span></div>
+        <p style="margin-top: 14px;">Social media graphics, posters, branding, motion design, and carousels.</p>
+      </div>
+      <div class="card">
+        <h3>📈 Marketing & Strategy</h3>
+        <div><span class="skill-badge">Social Media Management</span> <span class="skill-badge">Content Strategy</span> <span class="skill-badge">SEO Basics</span> <span class="skill-badge">Email Marketing</span> <span class="skill-badge">Google Analytics</span></div>
+        <p style="margin-top: 14px;">Audience growth, campaign planning, engagement analytics, brand amplification.</p>
+      </div>
+      <div class="card">
+        <h3>🤖 AI & Workflow Tools</h3>
+        <div><span class="skill-badge">ChatGPT</span> <span class="skill-badge">Canva AI</span> <span class="skill-badge">Gamma AI</span> <span class="skill-badge">Notion AI</span> <span class="skill-badge">Perplexity</span></div>
+        <p>Efficient content generation, ideation, and AI-assisted creative workflows.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience + Leadership (clean, without revenue/TedX specific lines) -->
+  <section>
+    <h2 class="section-title">Experience & Leadership</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Project Management Intern</h3>
+        <p style="color: var(--accent); margin-bottom: 8px;">Pawzz Foundation | Aug 2025 – Oct 2025</p>
+        <ul><li>Planned activities and timelines, coordinated with donors & major contributors.</li><li>Handled outreach, marketing and sales; ensured project met objectives within deadlines.</li></ul>
+      </div>
+      <div class="card">
+        <h3>Social Media Coordinator</h3>
+        <p style="color: var(--accent); margin-bottom: 8px;">Enactus SRCASW | Oct 2024 – Oct 2025</p>
+        <ul><li>Promoted from member to coordinator in 2 months.</li><li>Led content creation, social media strategy and event promotions.</li><li>Covered & recorded major college events for digital archives.</li></ul>
+      </div>
+      <div class="card">
+        <h3>Media & Graphics Member</h3>
+        <p style="color: var(--accent); margin-bottom: 8px;">TedxSRCASW • IIC SRCASW • DMFS</p>
+        <ul><li>Designed posts, brochures, event creatives achieving high visibility & engagement.</li><li>Collaborated with content & marketing teams for cohesive branding.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎥 VIDEO SECTION: only Vlog Video + Travel Edit (clean) -->
+  <div class="media-showcase" id="video-section">
+    <div class="media-title">🎬 Video Editing Showcase</div>
+    <p style="margin-bottom: 6px; color: var(--text-secondary);">Selected video work — Vlog style content and travel edits edited with CapCut, After Effects & Premiere Pro.</p>
+    <div class="video-gallery">
+      <!-- Video 1: Vlog Video -->
+      <div class="video-item">
+        <div class="video-wrapper">
+<div class="video-wrapper">
+  <video controls poster="https://placehold.co/640x360/1A1F2A/C9A87C?text=vlog+Preview">
+    <source src="vlog-edit.mp4" type="video/mp4">
+    Your browser does not support video tag.
+  </video>
+</div>
+          <video controls poster="https://placehold.co/640x360/1A1F2A/C9A87C?text=Vlog+Preview">
+  <source src="shimla recap.mp4" type="video/mp4">
+  Your browser does not support video tag.
+</video>        </div>
+        <div class="video-caption">📹 Vlog Video — Daily moments & storytelling</div>
+      </div>
+      <!-- Video 2: Travel Edit -->
+      <div class="video-item">
+        <div class="video-wrapper">
+          <video controls poster="https://placehold.co/640x360/1A1F2A/C9A87C?text=Travel+Edit+Preview">
+            <source src="vlog edit - Copy (2).mp4"type="video/mp4">
+            Your browser does not support video tag.
+          </video>
+        </div>
+        <div class="video-caption">✈️ Travel Edit — cinematic short film</div>
+      </div>
+    </div>
+     </div>
+
+  <!-- GRAPHIC DESIGN & CAROUSEL SECTION (only posters + Canva designs) -->
+  <div class="media-title">🖌️ Graphic Design & Posters Portfolio</div>
+<p style="margin-bottom: 16px; color: var(--text-secondary);">Canva designs, posters, social media carousels, and branding projects.</p>
+<div class="carousel-gallery" id="carouselGallery">
+  
+  <!-- Carousel item 1 -->
+  <div class="carousel-item">
+    <img src="Dance group.png" alt="Dance group poster">
+    <div class="carousel-caption">✨ Event Poster –  tedx</div>
+  </div>
+  
+  <!-- Carousel item 2 -->
+  
+    <div class="carousel-item">
+  <video controls style="width:100%; aspect-ratio:4/3; object-fit:cover;">
+    <source src="content marketing instagram.mp4" type="video/mp4">
+  </video>
+  <div class="carousel-caption">📱 Instagram Carousel – Content Marketing</div>
+</div>  
+  <!-- Carousel item 3 -->
+  <div class="carousel-item">
+    <img src="WORLD AIDS DAY.jpg" alt="World AIDS Day poster">
+    <div class="carousel-caption">🎨 Social Cause Poster – World AIDS Day</div>
+  </div>
+  
+  <!-- Carousel item 4 -->
+  <div class="carousel-item">
+    <img src="iic sponsor.jpg" alt="IIC sponsor poster">
+    <div class="carousel-caption">⭐ Promotional Visual – IIC Event</div>
+  </div>
+  
+</div>
+      </div>
+
+  <!-- Certifications & Projects - clean without any revenue/tedx mention -->
+  <section>
+    <h2 class="section-title">Certifications & Achievements</h2>
+    <div class="card-grid">
+      <div class="card"><h3>📊 Data Visualisation (TATA)</h3><p>Forage Job Simulation – empowering business insights with effective dashboards.</p></div>
+      <div class="card"><h3>📱 Product Management (EA)</h3><p>Forage simulation: product roadmap & stakeholder communication.</p></div>
+      <div class="card"><h3>🎨 Graphic Design Proficiency</h3><p>Younity certified – advanced Canva, Photoshop & visual branding.</p></div>
+      <div class="card"><h3>🔥 Content Strategy Impact</h3><p>Designed promotional creatives & social media content with high organic reach (2k+ views).</p></div>
+    </div>
+  </section>
+
+  <!-- Why Work With Me? (removed revenue line) -->
+  <section>
+    <h2 class="section-title">Why Work With Me?</h2>
+    <div class="card-grid">
+      <div class="card"><h3>⚡ Creative + Analytical</h3><p>Data-informed design decisions to maximize engagement and consistency.</p></div>
+      <div class="card"><h3>🚀 Fast Learner & Proactive</h3><p>Promoted to coordinator in 2 months; always exploring new marketing tools.</p></div>
+      <div class="card"><h3>🎯 Audience-first content</h3><p>Proven ability to create visually compelling content that drives views and interaction.</p></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <div style="background: var(--bg-card); border-radius: 28px; padding: 32px; border: 1px solid var(--border-subtle);">
+      <p>📧 <strong>Email:</strong> kv3696115@gmail.com</p>
+      <p>🔗 <strong>LinkedIn:</strong> Kajal Verma</p>
+            <p>📍 <strong>Location:</strong> New Delhi / India</p>
+      <hr style="margin: 24px 0;">
+      <p style="color: var(--text-secondary);">Open for Social Media & Marketing Internships – let's create impact together.</p>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>Kajal Verma — Creative Designer & Digital Marketing Enthusiast. Designed with modern aesthetics & strategic vision.</p>
+  <p style="margin-top: 12px;">© 2026 • Shaheed Rajguru College of Applied Sciences for Women, DU</p>
+</footer>
+
+<script>
+  // resume download from actual content
+  document.getElementById('downloadResumeBtn')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const resumeText = `KAJAL VERMA
+SUMMARY: Second-year Bachelor of Management student with hands-on experience in social media management, content creation and digital marketing. Skilled in graphic design, video editing and audience engagement strategies.
+EDUCATION: BMS (Shaheed Rajguru college, DU 2024-2028) | Class XII (CBSE) 2024 | Class X (CBSE) 2022
+EXPERIENCE: Project Management Intern @Pawzz Foundation (Aug 2025-Oct 2025). Social Media Coordinator @Enactus SRCASW (promoted in 2 months). Media & Graphics member @TedxSRCASW, IIC, DMFS.
+CERTIFICATIONS: Electronic Arts Product Management, TATA Data Visualisation, Graphic Designing Proficiency.
+SKILLS: Canva, Adobe Photoshop, Illustrator, After Effects, CapCut, Filmora, Social Media Strategy, Content Marketing, AI tools.
+    `;
+    const blob = new Blob([resumeText], {type: 'application/pdf'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Kajal_Verma_Resume.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+</script>
+
+<!-- 
+  ========== 🎯 QUICK & EASY GUIDE TO ADD YOUR CANVA DESIGNS & VIDEOS ==========
+  
+  ▶️ ADDING YOUR CANVA POSTERS / CAROUSELS:
+     1. Open your Canva design → Download as PNG (high resolution).
+     2. Move the downloaded image into the same folder as this HTML file.
+     3. In the code, locate the <div class="carousel-gallery"> section.
+     4. For each <img> tag, replace src="..." with your file name, e.g., src="my-fest-poster.png".
+     5. To add brand new poster: copy the entire .carousel-item block, paste inside carousel-gallery, and update img src + caption text.
+     
+  ▶️ ADDING YOUR VLOG VIDEO OR TRAVEL EDIT:
+     • OPTION A (YouTube): Go to your video on YouTube → click Share → Embed → copy the iframe src link. Replace the iframe src in "Vlog Video" block.
+     • OPTION B (MP4 file): Save your travel edit as .mp4 in the same folder. In the second video block, change <video> src="#"
+       to src="travel-edit.mp4" (or your file path). Add controls attribute already exists.
+     
+  ▶️ CHANGING TITLES: Just edit the text inside .video-caption or .carousel-caption spans.
+     
+  ▶️ DELETING EXTRA POSTERS? remove the corresponding .carousel-item div. Everything clean now – No sponsorship, no revenue/TedX lines.
+-->
+</body>
+</html>
